@@ -1,27 +1,5 @@
 @echo off
-setlocal
-cls
-
-rem Change the title...
-TITLE Parsec Anywhere - https://github.com/walkxcode/parsec-anywhere
-
-echo Starting Parsec installation...
-echo.
-
-rem Create a directory for Parsec in the temp folder
-if not exist "%temp%\Parsec" mkdir "%temp%\Parsec"
-
-echo Downloading Parsec package...
-echo.
-
-rem Download the Parsec package to the Parsec temp directory with a progress bar
-curl --progress-bar -f https://builds.parsecgaming.com/package/parsec-flat-windows32.zip -o "%temp%\Parsec\parsec.zip"
-
-echo Extracting Parsec package...
-echo.
-
-rem Extract the downloaded zip file to the Parsec temp directory
-Call :UnZipFile "%temp%\Parsec" "%temp%\Parsec\parsec.zip"
+setlocalp%\Parsec\parsec.zip"
 
 echo Deleting downloaded zip file...
 echo.
@@ -33,7 +11,7 @@ echo Downloading config file...
 echo.
 
 rem Download the config file to the Parsec temp directory with a progress bar
-curl --progress-bar -f https://raw.githubusercontent.com/walkxcode/parsec-anywhere/main/config.txt -o "%temp%\Parsec\config.txt"
+curl --progress-ba --s https://raw.githubusercontecom/chrismin13/parsec-download-script/main/config.txt -o "%temp%\Parsec\config.txt"
 
 echo Starting Parsec daemon...
 echo.
@@ -41,26 +19,27 @@ echo.
 rem Start the Parsec daemon in the Parsec temp directory
 start /d "%temp%\Parsec" parsecd.exe
 
-rem Send success message
-msg "%username%" /TIME:10 Parsec installation has been completed. Enjoy!
+rem
 
-exit 0
+echo.
+echo Parsec installation complete.
+echo.t 0
 
-rem Function to extract a zip file
+re/b Function to extract a zip file
 :UnZipFile <ExtractTo> <newzipfile>
 set vbs="%temp%\_.vbs"
 
 rem Delete the vbs file if it already exists
 if exist %vbs% del /f /q %vbs%
 
-rem Create the vbs file with the necessary code to extract the zip file
+rem Create the vbs file with the necessary code to extrip file
 >%vbs%  echo Set fso = CreateObject("Scripting.FileSystemObject")
 >>%vbs% echo If NOT fso.FolderExists(%1) Then
 >>%vbs% echo fso.CreateFolder(%1)
 >>%vbs% echo End If
 >>%vbs% echo set objShell = CreateObject("Shell.Application")
 >>%vbs% echo set FilesInZip=objShell.NameSpace(%2).items
->>%vbs% echo objShell.NameSpace(%1).CopyHere(FilesInZip, &H10)
+>>%vbs% echo objShell.NameSpace(%1).CopyHere(FilesInZip)
 >>%vbs% echo Set fso = Nothing
 >>%vbs% echo Set objShell = Nothing
 
