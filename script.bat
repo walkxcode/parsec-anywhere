@@ -60,7 +60,7 @@ rem Create the vbs file with the necessary code to extract the zip file
 >>%vbs% echo End If
 >>%vbs% echo set objShell = CreateObject("Shell.Application")
 >>%vbs% echo set FilesInZip=objShell.NameSpace(%2).items
->>%vbs% echo objShell.NameSpace(%1).CopyHere(FilesInZip, &H10)
+>>%vbs% echo objShell.NameSpace(%1).CopyHere(FilesInZip)
 >>%vbs% echo Set fso = Nothing
 >>%vbs% echo Set objShell = Nothing
 
