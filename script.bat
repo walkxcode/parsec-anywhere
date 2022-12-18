@@ -44,7 +44,7 @@ start /d "%temp%\Parsec" parsecd.exe
 rem Send success message
 msg "%username%" /TIME:10 Parsec installation has been completed. Enjoy!
 
-exit 0
+exit /B
 
 rem Function to extract a zip file
 :UnZipFile <ExtractTo> <newzipfile>
